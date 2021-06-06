@@ -13,7 +13,8 @@ app.use(cors());
 app.use(express.json({ extended: false }));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, '../build')));
-// app.use('/', (req, res) => res.sendFile(path.join(__dirname, './build', 'index.html')));
 app.use(routes);
 
+const PORT = process.env.PORT || 8000;
+app.listen(PORT, () => { console.log(`Server started at ${PORT}`); });
 export default app;
